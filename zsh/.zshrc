@@ -110,7 +110,6 @@ source $ZSH/oh-my-zsh.sh
 
 # bun completions
 [ -s "/Users/alaricode/.bun/_bun" ] && source "/Users/alaricode/.bun/_bun"
-alias ls="eza --tree --level=1 --icons=always --no-time --no-user --no-permissions"
 
 export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH="/Users/alaricode/.cargo/bin"
