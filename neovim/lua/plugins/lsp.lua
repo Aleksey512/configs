@@ -39,6 +39,21 @@ lspconfig.ruff_lsp.setup {
   }
 }
 
+lspconfig.gopls.setup {
+    cmd = { "gopls" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    settings = {
+    gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+            unusedparams = true,
+        },
+    },
+  },
+}
+
+
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float)

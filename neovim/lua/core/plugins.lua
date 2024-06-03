@@ -13,7 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-	
+    { 'gopls' },
 	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'neovim/nvim-lspconfig' },
 

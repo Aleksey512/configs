@@ -15,5 +15,5 @@ brew install git npm  # MacOS
 mkdir -p ~/.config/nvim
 git clone https://github.com/Aleksey512/configs.git
 mv ./configs/neovim/* ~/.config/nvim/
-nvim -c "MasonInstall pyright ruff-lsp mypy"
+nvim -c "MasonInstall pyright ruff-lsp mypy gopls"
 ```
