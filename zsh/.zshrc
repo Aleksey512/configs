@@ -117,7 +117,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias n="nvim" 
 alias cat="bat"
-alias ls="exa --tree --level=1"
+alias ls="exa"
 
 # bun completions
 [ -s "/Users/alaricode/.bun/_bun" ] && source "/Users/alaricode/.bun/_bun"
@@ -131,7 +131,7 @@ eval "$(fzf --zsh)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-eval "$(oh-my-posh init zsh)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/space.omp.json)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 . /usr/share/staff/profile 2>/dev/null
