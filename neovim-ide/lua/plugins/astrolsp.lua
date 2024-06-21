@@ -38,7 +38,9 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+      "pyright",
+      "gopls",
+      "ruff_lsp"
     },
     -- customize language server configuration options passed to `lspconfig`
     ---@diagnostic disable: missing-fields
@@ -147,7 +149,11 @@ return {
         },
         gI = {
           function() vim.lsp.buf.implementation() end,
-          desc = "implementation",
+          desc = "Implementation",
+        },
+        gi = {
+          function() require('lspimport').import() end,
+          desc = "Import",
         },
         K = {
           function() vim.lsp.buf.hover() end,
