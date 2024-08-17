@@ -137,13 +137,12 @@ return {
         gD = {
           function() vim.lsp.buf.declaration() end,
           desc = "Declaration of current symbol",
-          cond = "textDocument/declaration",
         },
         gy = {
           function() vim.lsp.buf.type_definition() end,
           desc = "Type definition",
         },
-        gd = {
+        gp = {
           function() vim.lsp.buf.definition() end,
           desc = "Definition",
         },
@@ -159,8 +158,6 @@ return {
           function() vim.lsp.buf.hover() end,
           desc = "Hover symbol details",
         },
-
-
       },
     },
     -- A custom `on_attach` function to be run after the default `on_attach` function
