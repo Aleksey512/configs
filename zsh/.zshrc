@@ -118,6 +118,7 @@ source $ZSH/oh-my-zsh.sh
 alias n="nvim" 
 alias cat="bat"
 alias ls="exa"
+alias cls="clear"
 
 # bun completions
 [ -s "/Users/alaricode/.bun/_bun" ] && source "/Users/alaricode/.bun/_bun"
@@ -134,5 +135,5 @@ eval "$(fzf --zsh)"
 eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/space.omp.json)"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. /usr/share/staff/profile 2>/dev/null
 POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true
+. /usr/share/staff/profile 2>/dev/null
