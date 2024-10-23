@@ -115,6 +115,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias acpoet="source \"\$(poetry env info --path)/bin/activate\""
 alias n="nvim" 
 alias cat="bat"
 alias ls="exa"
@@ -127,6 +128,11 @@ export PATH="/usr/local/opt/openjdk/bin:$PATH"
 export PATH=/bin:/usr/bin:/usr/local/bin:/sbin:${PATH}
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="/home/$USERNAME/.pyenv:$PATH"
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+eval "$(pyenv init -)"
 
 eval "$(fzf --zsh)"
 
