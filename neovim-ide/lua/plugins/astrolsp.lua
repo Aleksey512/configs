@@ -23,10 +23,14 @@ return {
         allow_filetypes = { -- enable format on save for specified filetypes only
           "go",
         },
-        ignore_filetypes = { -- disable format on save for specified filetypes
-          "python",
-        },
       },
+      filter = function(client)
+        if vim.bo.filetype == "python" then
+          return client.name == "null-ls"
+        end
+
+        return true
+      end,
       disabled = { -- disable formatting capabilities for the listed language servers
         -- disable lua_ls formatting capability if you want to use StyLua to format your lua code
         "pyright",
@@ -69,10 +73,10 @@ return {
             },
           },
         on_new_config = function(new_config, dir)
-          if require("util").dir_has_file(dir, "poetry.lock") then
+          if require("utils").dir_has_file(dir, "poetry.lock") then
             vim.notify_once("Running `pyright` with `poetry`")
             new_config.cmd = { "poetry", "run", "pyright-langserver", "--stdio" }
-          elseif require("util").dir_has_file(dir, "Pipfile") then
+          elseif require("utils").dir_has_file(dir, "Pipfile") then
             vim.notify_once("Running `pyright` with `pipenv`")
             new_config.cmd = { "pipenv", "run", "pyright-langserver", "--stdio" }
           else

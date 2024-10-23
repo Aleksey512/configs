@@ -1,6 +1,6 @@
 
 -- Customize None-ls sources
-if true then return {} end
+-- if true then return {} end
 ---@type LazySpec
 return {
   "nvimtools/none-ls.nvim",
@@ -15,8 +15,17 @@ return {
       null_ls.builtins.formatting.isort,
       null_ls.builtins.diagnostics.mypy.with({
         extra_args = function()
-          local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
-          return { "--python-executable", virtual .. "/bin/python3" }
+          -- Проверяем, используется ли poetry
+          if require("utils").cwd_has_file("poetry.lock") then
+            vim.notify_once("Running `mypy` with `poetry`")
+            -- Возвращаем путь к python, используя poetry
+            return { "--python-executable", vim.fn.system("poetry env info --path") .. "/bin/python3" }
+          else
+            -- Иначе используем стандартное окружение
+            vim.notify_once("Running `mypy` with `ENV`")
+            local virtual = os.getenv("VIRTUAL_ENV") or os.getenv("CONDA_PREFIX") or "/usr"
+            return { "--python-executable", virtual .. "/bin/python3" }
+          end
         end,
       }),
       -- Set a formatter
