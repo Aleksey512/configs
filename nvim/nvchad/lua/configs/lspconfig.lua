@@ -1,24 +1,40 @@
--- load defaults i.e lua_lsp
-require("nvchad.configs.lspconfig").defaults()
+local configs = require("nvchad.configs.lspconfig")
 
-local lspconfig = require "lspconfig"
+local on_attach = configs.on_attach
+local on_init = configs.on_init
+local capabilities = configs.capabilities
 
--- EXAMPLE
-local servers = { "html", "cssls" }
-local nvlsp = require "nvchad.configs.lspconfig"
+local lspconfig = require("lspconfig")
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = nvlsp.on_attach,
-    on_init = nvlsp.on_init,
-    capabilities = nvlsp.capabilities,
-  }
+-- if you just want default config for the servers then put them in a table
+local servers = { "html", "cssls", "gopls", "pyright" }
+
+local function organize_imports()
+	local params = {
+		command = "_typescript.organizeImports",
+		arguments = { vim.api.nvim_buf_get_name(0) },
+	}
+	vim.lsp.buf.execute_command(params)
 end
 
--- configuring single server, example: typescript
--- lspconfig.ts_ls.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+for _, lsp in ipairs(servers) do
+	lspconfig[lsp].setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+		commands = {
+			OrganizeImports = {
+				organize_imports,
+				description = "Organize Imports",
+			},
+		},
+		settings = {
+			gopls = {
+				completeUnimported = true,
+				usePlaceholders = true,
+				analyses = {
+					unusedparams = true,
+				},
+			},
+		},
+	})
+end
