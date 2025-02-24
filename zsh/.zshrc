@@ -120,6 +120,7 @@ alias n="nvim"
 alias cat="bat"
 alias ls="exa"
 alias cls="clear"
+alias fzf="fzf --preview 'bat --style=numbers --color=always --line-range=:100 {}'"
 
 # bun completions
 [ -s "/Users/alaricode/.bun/_bun" ] && source "/Users/alaricode/.bun/_bun"
@@ -131,6 +132,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 export PATH="/home/$USERNAME/.pyenv:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export PATH=$PATH:$HOME/bin
 
 eval "$(pyenv init -)"
 
