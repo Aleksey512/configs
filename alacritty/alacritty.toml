@@ -1,4 +1,4 @@
-import = ["/home/gsyakunin/.config/alacritty/themes/custom.toml"]
+import = ["${HOME}/.config/alacritty/themes/custom.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
