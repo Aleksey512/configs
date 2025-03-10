@@ -25,18 +25,6 @@ return {
       require("better_escape").setup()
     end,
   },
-  -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("chatgpt").setup {}
-  --   end,
-  --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim",
-  --   },
-  -- },
   { "tpope/vim-fugitive" },
   { "rbong/vim-flog", dependencies = {
     "tpope/vim-fugitive",
@@ -66,4 +54,12 @@ return {
       require("todo-comments").setup()
     end,
   }, -- To make a plugin not be loaded
+  {
+    "numToStr/Comment.nvim",
+    lazy = false,
+    config = function()
+      require('Comment').setup()
+    end,
+  },
+
 }
