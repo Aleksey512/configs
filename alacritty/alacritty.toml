@@ -1,5 +1,3 @@
-import = ["${HOME}/.config/alacritty/themes/custom.toml"]
-
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -11,7 +9,7 @@ blinking = "Always"
 shape = "Beam"
 
 [env]
-TERM = "alacritty"
+TERM = "xterm-256color"
 
 [font]
 builtin_box_drawing = true
@@ -48,13 +46,11 @@ multiplier = 6
 save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
-[shell]
-program = "/usr/bin/zsh"
-
 [window]
 dynamic_title = true
 opacity = 0.95
 title = "Alacritty"
+startup_mode = "Maximized"
 
 [window.class]
 general = "Alacritty"
