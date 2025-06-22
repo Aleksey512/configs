@@ -1,12 +1,5 @@
 return {
   {
-    "stevearc/conform.nvim",
-    event = "BufWritePre",
-    config = function()
-      require("config.conform")
-    end,
-  },
-  {
     "stevearc/dressing.nvim",
     lazy = false,
     opts = {},
@@ -58,8 +51,7 @@ return {
     "numToStr/Comment.nvim",
     lazy = false,
     config = function()
-      require('Comment').setup()
+      require("Comment").setup()
     end,
   },
-
 }
